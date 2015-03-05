@@ -1,7 +1,18 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<!doctype html>
+<html ng-app="appModule">
+    <head>
+        <meta charset="utf-8">
+        <script src="components/angularjs/angular.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="table.css" type="text/css">
+    </head>
+    <body ng-controller='Ctrl'>
+        <my-title>
+            <my-content class='table'
+                ng-repeat='item in items'
+                item-title='item.title'>
+                {{item.content}}
+            </my-content>
+        </my-title>
+    </body>
 </html>
