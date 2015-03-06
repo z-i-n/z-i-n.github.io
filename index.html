@@ -1,19 +1,21 @@
 <!doctype html>
-<html ng-app="appModule">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <script src="components/angularjs/angular.js"></script>
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="table.css" type="text/css">
-    </head>
-    <body ng-controller='Ctrl'>
-        <my-title>
-            <my-content class='table'
-                ng-repeat='item in items'
-                item-title='item.title'>
-                {{item.content}}
-            </my-content>
-        </my-title>
-    </body>
+<html lang="en" ng-app="phonecatApp">
+<head>
+  <meta charset="utf-8">
+  <title>Google Phone Gallery</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+<body ng-controller="PhoneListCtrl">
+
+  <ul>
+    <li ng-repeat="phone in phones">
+      <span>{{phone.name}}</span>
+      <p>{{phone.snippet}}</p>
+    </li>
+  </ul>
+
+</body>
 </html>
