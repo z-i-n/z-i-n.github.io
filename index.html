@@ -1,21 +1,307 @@
-<!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Google Phone Gallery</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css">
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="js/controllers.js"></script>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<title></title>
+<link rel="stylesheet" href="./css/common.css" />
+<link rel="stylesheet" href="./css/loading.css" />
+<script type="text/javascript" src="framework/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="framework/jsrender.js"></script>
+<script type="text/javascript" src="framework/jquery.xml2json.js"></script>
+<script type="text/javascript" src="js/custom_event_listener.js"></script>
+<script type="text/javascript" src="js/native_interface.js"></script>
+<script type="text/javascript" src="js/native.js"></script>
+<script type="text/javascript" src="js/magazine.js"></script>
+<script type="text/javascript" src="edit/edit.js"></script>
+<script type="text/javascript" src="js/dev.js"></script>
+<script type="text/javascript">
+$(function () {
+	if(!!document.createElement("video").canPlayType){
+		window.isUseMedia = true;
+	}
+	$.ajax({
+		url: 'data.json?t='+new Date().getTime(),
+		type: 'GET',
+		dataType: 'json',
+		timeout: 10000,
+		success: function(objJson, textStatus, jqXHR) {
+			/*
+			*	magazine
+			*/
+			magazine = new Magazine(objJson,
+						isEditMode ? function(){ Edit.initPageData.apply(Edit, arguments); } : null,
+						isEditMode ? function(){ return Edit.addItemDic.apply(Edit, arguments); } : null
+					);
+			/*
+			* EventListener
+			*/
+			nativeEvent.addListener('gotopage', function(){ magazine.gotoPage.apply(magazine, arguments); });
+			nativeEvent.addListener('paging', function(){ magazine.paging.apply(magazine, arguments); });
+			if (window.location.href.indexOf('page=') > 0 ) {
+				var re = window.location.href.match(/page=(\d+)/);
+				magazine.gotoPage(parseInt(re[1], 10));
+			}
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			throw new Error('ERROR.XML_PARSING');
+		}
+	});
+	/**
+	 *  Landscape View uses page navigation via vertical swipe.
+	 *  Portrait View uses native scroll.
+	 */
+	//if (!window.isEditMode) {
+	//	if (isLandscape) {
+			slideController.init();
+	//	} else {
+	//		window.onscroll = function() {
+	//			pauseAllAudio();
+	//		};
+	//	}
+	//}
+	window.pageHeight = css.get(document.getElementById('Wrap'), 'height');
+	window.pageWidth = css.get(document.getElementById('Wrap'), 'width');
+
+});
+</script>
 </head>
-<body ng-controller="PhoneListCtrl">
+<body>
+	<div id="Wrap">
+		<div id="pageWrapper">
 
-  <ul>
-    <li ng-repeat="phone in phones">
-      <span>{{phone.name}}</span>
-      <p>{{phone.snippet}}</p>
-    </li>
-  </ul>
 
+			<!--
+			<div id="page_0" class="page">
+				<div class="layoutType1">
+				</div>
+				<div class="pageNum">- 1 -</div>
+			</div>
+
+			<div id="page_1" class="page">
+				<div class="layoutType2-1">
+				</div>
+				<div class="layoutType2-2">
+				</div>
+				<div class="pageNum">- 2 -</div>
+			</div>
+
+
+			<div id="page_2" class="page">
+				<div class="layoutType3-1"></div>
+				<div class="layoutType3-2">
+				</div>
+				<div class="layoutType3-3">
+				</div>
+				<div class="pageNum">- 3 -</div>
+			</div>
+
+			<div id="page_3" class="page">
+				<div class="layoutType4-1">
+				</div>
+				<div class="layoutType4-2">
+				</div>
+				<div class="layoutType4-3">
+				</div>
+				<div class="pageNum">- 4 -</div>
+			</div>
+
+			<div id="page_4" class="page">
+				<div class="layoutType5-1">
+				</div>
+				<div class="layoutType5-2">
+				</div>
+				<div class="layoutType5-3">
+				</div>
+				<div class="layoutType5-4">
+				</div>
+				<div class="layoutType5-5">
+				</div>
+				<div class="pageNum">- 5 -</div>
+			</div>
+
+			<div id="page_5" class="page">
+				<div class="layoutType6-1">
+				</div>
+				<div class="layoutType6-2">
+				</div>
+				<div class="layoutType6-3">
+				</div>
+				<div class="layoutType6-4">
+				</div>
+				<div class="pageNum">- 6 -</div>
+			</div>
+
+			-->
+		</div>
+	</div>
+
+
+
+	<div class="block_wrap">
+	</div>
+
+	<div class="spinner">
+		<div class="bar1"></div>
+		<div class="bar2"></div>
+		<div class="bar3"></div>
+		<div class="bar4"></div>
+		<div class="bar5"></div>
+		<div class="bar6"></div>
+		<div class="bar7"></div>
+		<div class="bar8"></div>
+		<div class="bar9"></div>
+		<div class="bar10"></div>
+		<div class="bar11"></div>
+		<div class="bar12"></div>
+	</div>
+
+
+	<div class="dev_area" style="display:none;">
+		<div>
+			<br>
+			addpage
+			<button onclick="addPage();">addPage</button>
+			<br>
+			gotopage
+			<input type="text" id="pageNum" style="width: 50px"/>
+			<button onclick="gotoPage()">goto Page</button>
+			<br>
+			delpage
+			<input type="text" id="delNum" style="width: 50px" />
+			<button onclick="delPage()">del Page</button>
+			<br>
+			swappage
+			<input type="text" id="Num1" style="width: 50px" />
+			<input type="text" id="Num2" style="width: 50px" />
+			<button onclick="swapPage()">swap Page</button>
+			<br>
+			page thumbnail
+			<input type="text" id="pageThumb" style="width: 150px" />
+			<button onclick="pageThumb()">page thumbnail</button>
+			<br>
+			save
+			<button onclick="save()">save</button>
+		</div>
+
+		<div class="dev_pop" style="z-index:1000; position: absolute;top:0px;left:0px;">
+			<div class="dev_pop_contents">
+				<div id="selectLayout" class="editItem">
+					<h2>Select Layout</h2>
+					<select id="layoutTemplateType">
+						<option value="layout1">layout1	</option>
+						<option value="layout2">layout2		</option>
+						<option value="layout3">layout3		</option>
+						<option value="layout4">layout4		</option>
+						<option value="layout5">layout5		</option>
+						<option value="layout6">layout6		</option>
+					</select>
+					<button onclick="setLayoutTemplate()">Select Template</button>
+					<br/><br/>
+					<button onclick="cancel()">Cancel</button>
+				</div>
+				<div id="selectItem" class="editItem">
+					<h2>Select Item</h2>
+					<select id="itemTemplateType">
+						<option value="text">		text		</option>
+						<option value="image">		image		</option>
+						<option value="video">		video		</option>
+						<option value="audio">		audio		</option>
+					</select>
+					<button onclick="setItemTemplate()">Select Item</button>
+					<br/><br/>
+					<button onclick="cancel()">Cancel</button>
+				</div>
+				<div id="edit_image" class="editItem">
+					<h2>Image Item</h2>
+					<!-- id: <input type="text" id="imageId"/> <br/> -->
+					url: <input type="text" id="imageUrl"/> <br/>
+					title: <input type="text" id="imageTitle"/> <br/>
+					link: <input type="text" id="imageLink"/> <br/>
+					<button onclick="editImage()">Ok</button>
+					<button onclick="cancel()">Cancel</button>
+				</div>
+				<div id="edit_video" class="editItem">
+					<h2>Video Item</h2>
+					<!-- id: <input type="text" id="videoId"/> <br/> -->
+					url: <input type="text" id="videoUrl" value="http://media.w3.org/2010/05/sintel/trailer.mp4"/> <br/>
+					title: <input type="text" id="videoTitle"/> <br/>
+					poster: <input type="text" id="videoPoster" value="http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg"/> <br/>
+					<button onclick="editVideo()">Ok</button>
+					<button onclick="cancel()">Cancel</button>
+				</div>
+				<div id="edit_audio" class="editItem">
+					<h2>Audio Item</h2>
+					<!-- id: <input type="text" id="audioId"/> <br/> -->
+					url: <input type="text" id="audioUrl"/> <br/>
+					title: <input type="text" id="audioTitle"/> <br/>
+					link: <input type="text" id="audioLink"/> <br/>
+					<button onclick="editAudio()">Ok</button>
+					<button onclick="cancel()">Cancel</button>
+				</div>
+				<div id="edit_text" class="editItem">
+					<h2>Text Item</h2>
+					fontstyle:
+						<select id="fStyle">
+							<option value="Droid Sans">		Droid Sans		</option>
+							<option value="Capriola">		Capriola		</option>
+							<option value="Courgette">		Courgette		</option>
+						</select><br/>
+					fontsize: <input type="range" min="10" max="40" step="1" id="fSize" value="12" onchange="changeFontSize()"/> <span id="fsize">12</span><br/>
+					bold: <input type="checkbox" id="fBold"/> <br/>
+					italic: <input type="checkbox" id="fItalic"/> <br/>
+					underline: <input type="checkbox" id="fUnderline"/> <br/>
+					content: <textarea id="fContent"></textarea> <br/>
+					<button onclick="editText()">Ok</button>
+					<button onclick="cancel()">Cancel</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div id="debug" style="position: absolute; top: 100px; left: 50px; z-index: 1000"></div>
 </body>
+<script id="pageTemplate" type="text/x-jsrender">
+	<span class="pageNum">- {{:page}} -</span>
+</script>
+<script id="layoutTemplate" type="text/x-jsrender">
+	<div {{:~id(uid)}} class="{{:cls}} edititembox" data-type="{{:type}}"></div>
+</script>
+<script id="textTemplate" type="text/x-jsrender">
+	<div class="textBox edititem" {{:~fontstyle(data.fontstyle, data.fontsize, data.bold, data.italic, data.underline)}}>
+		{{:~newLine(data.content)}}
+	</div>
+</script>
+<script id="imageTemplate" type="text/x-jsrender">
+	<div class="photoBox edititem" style="background-image:url('{{:data.url}}');" >
+		<img src="{{:data.url}}" alt="{{:data.title}}" onload="resizeImg(this, '{{:data.url}}')" style="display:none" />
+	</div>
+</script>
+<script id="videoTemplate" type="text/x-jsrender">
+	<div class="photoBox edititem">
+		<video onloadedmetadata="widthVideo(this)" onplay="onPlayVideo(this)" onpause="onPauseVideo(this)" poster="{{:data.poster}}" style="display:none" onclick="playVideo(this)">
+			<source src="{{:data.url}}" />
+			Video tag not supported. Download the video <a href="#" onclick="openMedia('{{:data.url}}')">here</a>
+		</video>
+	</div>
+</script>
+<script id="audioTemplate" type="text/x-jsrender">
+	<div class="audioBox edititem">
+		<audio onloadedmetadata="widthAudio(this)" controls="controls" onplay="oPlayAudio(this)">
+			<source src="{{:data.url}}" />
+			Audio tag not supported. Download the audio <a href="#" onclick="openMedia('{{:data.url}}')">here</a>
+		</audio>
+	</div>
+</script>
+<script id="videoEditTemplate" type="text/x-jsrender">
+	<div class="photoBox edititem" style="background-image:url('{{:data.poster}}');" >
+		<img src="{{:data.poster}}" alt="{{:data.title}}" onload="resizeImg(this, '{{:data.poster}}')" style="display:none" />
+	</div>
+</script>
+<script id="noMediaTemplate" type="text/x-jsrender">
+	<div class="photoBox edititem">
+		<img src="{{:~mediaType(type)}}" alt="{{:data.title}}" onclick="openMedia('{{:data.url}}')" />
+	</div>
+</script>
 </html>

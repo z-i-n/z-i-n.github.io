@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<olt version="1.0" name="file1" defaultlocale="ko" count="5">
+<language>ko</language>
+<language>en-US</language>
+<feature name="http://wacapps.net/api/deviceapis" />
+<feature name="http://wacapps.net/api/accelerometer" />
+<feature name="http://wacapps.net/api/deviceinteraction" />
+<feature name="http://wacapps.net/api/orientation" />
+<feature name="http://wacapps.net/api/devicestatus" />
+<feature name="http://wacapps.net/api/camera" />
+<feature name="http://wacapps.net/api/pim.contact" />
+<feature name="http://wacapps.net/api/filesystem" />
+<feature name="http://wacapps.net/api/pim.calendar" />
+<feature name="http://wacapps.net/api/pim.task" />
+<feature name="http://wacapps.net/api/messaging" />
+<feature name="http://wacapps.net/api/accelerometer" />
+<feature name="http://wacapps.net/api/accelerometer" />
+<feature name="http://www.w3.org/TR/geolocation-API/" />
+</olt>

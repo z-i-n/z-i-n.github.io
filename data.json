@@ -1,0 +1,247 @@
+{
+	"version": "1.0.1",
+	"page": [
+
+		{
+			"thumb": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+			"type": "layout5",
+			"layout": [
+				{
+					"cls": "layoutType5-1",
+					"item" : {
+						"type":"text",
+						"data":{
+							"bold":true,
+							"italic":true,
+							"underline":true,
+							"content":"Test",
+							"fontstyle":"Capriola",
+							"fontsize":"19"
+						}
+					}
+				},
+				{
+					"cls": "layoutType5-2",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://cfs14.tistory.com/image/16/tistory/2009/12/13/06/58/4b24120e1353b",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType5-3",
+					"item" : {
+						"type": "video",
+						"data": {
+							"url": "http://media.w3.org/2010/05/sintel/trailer.mp4",
+							"title": "",
+							"poster": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg"
+						}
+					}
+				},
+				{
+					"cls": "layoutType5-4",
+					"item" : {
+						"type": "audio",
+						"data": {
+							"url": "http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType5-5",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				}
+			]
+		},
+		{
+			"thumb": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+			"type": "layout2",
+			"layout": [
+				{
+					"cls": "layoutType2-1",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://cfs14.tistory.com/image/16/tistory/2009/12/13/06/58/4b24120e1353b",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType2-2",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				}
+			]
+		},
+
+		{
+			"thumb": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+			"type": "layout1",
+			"layout": [
+				{
+					"cls": "layoutType1",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				}
+			]
+		},
+
+		{
+			"thumb": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+			"type": "layout3",
+			"layout": [
+				{
+					"cls": "layoutType3-1",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType3-2",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType3-3",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://cfs14.tistory.com/image/16/tistory/2009/12/13/06/58/4b24120e1353b",
+							"title": "",
+							"link": ""
+						}
+					}
+				}
+			]
+		},
+
+		{
+			"thumb": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+			"type": "layout4",
+			"layout": [
+				{
+					"cls": "layoutType4-1",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType4-2",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType4-3",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://cfs14.tistory.com/image/16/tistory/2009/12/13/06/58/4b24120e1353b",
+							"title": "",
+							"link": ""
+						}
+					}
+				}
+			]
+		},
+
+		{
+			"thumb": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+			"type": "layout6",
+			"layout": [
+				{
+					"cls": "layoutType6-1",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType6-2",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://cfs14.tistory.com/image/16/tistory/2009/12/13/06/58/4b24120e1353b",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType6-3",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://pds17.egloos.com/pds/201003/01/92/a0002692_4b8bb2fe0a9b8.jpg",
+							"title": "",
+							"link": ""
+						}
+					}
+				},
+				{
+					"cls": "layoutType6-4",
+					"item" : {
+						"type": "image",
+						"data": {
+							"url": "http://cfs14.tistory.com/image/16/tistory/2009/12/13/06/58/4b24120e1353b",
+							"title": "",
+							"link": ""
+						}
+					}
+				}
+			]
+		}
+	]
+}
