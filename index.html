@@ -14,13 +14,9 @@ $('#searchinput').on('keyup', function(event) {
                         if (event.which == 13) {
                             event.preventDefault();
                             $('#debug').text('enter');
-                            $('#searchinput')[0].disabled = true;
+                            $('#searchinput')[0].style.display = none;
+                            $('#searchinput')[0].style.display = 'block';
                         }
-                    });
-$('#searchinput').on('click', function(event) {
-	
-                            $('#searchinput')[0].disabled = false;
-        
                     });
 });
 </script>
