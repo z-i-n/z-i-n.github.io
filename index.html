@@ -9,7 +9,7 @@
 <script type="text/javascript">
 $(function () {
 $('#searchinput').on('keyup', function(event) {
-	
+	event.preventDefault();
                             $('#debug').text(event.which);
                         if (event.which == 13) {
                             event.preventDefault();
@@ -21,9 +21,10 @@ $('#searchinput').on('keyup', function(event) {
 </script>
 </head>
 <body>
+<form action='.'>
 <input type="search" id="searchinput" name="searchinput" title="검색어 입력" value="d" 
 autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="255" >
-
+</form>
 	<div id="debug"></div>
 	
 </body>
