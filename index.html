@@ -15,7 +15,7 @@ $(function () {
 $('#searchinput').on('keyup', function(event) {
                         if (event.which == 13) {
                             event.preventDefault();
-                            $('#searchinput')[0].unfocus();
+                            $('#searchinput')[0].disabled = true;
                         }
                     });
 
