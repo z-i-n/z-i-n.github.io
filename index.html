@@ -17,7 +17,11 @@ $('#searchinput').on('keyup', function(event) {
                             $('#searchinput')[0].disabled = true;
                         }
                     });
-
+$('#searchinput').on('focus', function(event) {
+	
+                            $('#searchinput')[0].disabled = false;
+        
+                    });
 });
 </script>
 </head>
