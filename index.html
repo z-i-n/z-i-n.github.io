@@ -13,6 +13,8 @@
 <script type="text/javascript">
 $(function () {
 $('#searchinput').on('keyup', function(event) {
+	
+                            $('#searchinput').text(event.which);
                         if (event.which == 13) {
                             event.preventDefault();
                             $('#searchinput').text('enter');
