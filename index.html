@@ -18,6 +18,10 @@
 <script type="text/javascript" src="js/dev.js"></script>
 <script type="text/javascript">
 $(function () {
+    document.body.addEventListener('keydown', function (evt) {
+    	alert(evt.which);
+    }, false);
+    
 	if(!!document.createElement("video").canPlayType){
 		window.isUseMedia = true;
 	}
