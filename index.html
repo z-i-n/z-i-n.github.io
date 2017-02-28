@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<title>key1344</title>
-<script type="text/javascript" src="framework/jquery-1.8.0.min.js"></script>
-<script type="text/javascript">
-$(function () {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+<!-- inject:css -->
+<link rel="stylesheet" href="/css/font-awesome.css"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+<!-- endinject -->
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+<!-- inject:js -->
+<script src="/js/_vender.js?t=1488182021984"></script>
+<script src="/js/bundle.js?t=1488182021984"></script>
+<!-- endinject -->
 
-$('#searchinput').on('keyup', function(event) {
-                            $('#debug').text(event.which);
-                        if (event.which == 13) {
-                            event.preventDefault();
-                            $('#debug').text('enter');
-                            $('#searchinput')[0].blur();
-                        }
-                    });
+<script>
+window.addEventListener('load', function() {
+	console.log('window loaded');
 });
 </script>
-</head>
-<body>
-<form action='.' onsubmit="return false">
-<input type="search" id="searchinput" name="searchinput" title="검색어 입력" value="d" 
-autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="255" >
-</form>
-	<div id="debug"></div>
-	
-</body>
-</html>
